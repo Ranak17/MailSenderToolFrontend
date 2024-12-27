@@ -1,0 +1,29 @@
+.template1 {
+    background: white;
+    color: black;
+    position: relative;
+    height: 100%;
+}
+
+.header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.body {
+    padding: 2rem;
+    display: grid;
+    gap: .8rem;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}

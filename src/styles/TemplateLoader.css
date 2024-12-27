@@ -1,0 +1,121 @@
+/* Base Styles */
+.template-loader {
+    background-color: rgb(17, 24, 39);
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.template-loader__header {
+    text-align: center;
+    color: rgb(163, 230, 53);
+}
+
+.template-loader__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    height: 80%;
+}
+
+.template-loader__dropdown {
+    flex: 1;
+    min-width: 300px;
+}
+
+.template-loader__label {
+    display: block;
+    color: rgb(163, 230, 53);
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.template-loader__select {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(17, 24, 39);
+    color: rgb(163, 230, 53);
+    border: 1px solid rgb(163, 230, 53);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Preview Section */
+.template-loader__preview {
+    flex: 3;
+    min-width: 300px;
+}
+
+.template-loader__card {
+    background-color: rgb(17, 24, 39);
+    border: 1px solid rgb(163, 230, 53);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+.template-loader__card-header {
+    background-color: rgb(163, 230, 53);
+    color: rgb(17, 24, 39);
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+
+.template-loader__card-body {
+    padding: 10px;
+    height: 100%;
+    color: #fff;
+}
+
+.template-loader__template-content {
+    background-color: rgb(17, 24, 39);
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid rgb(163, 230, 53);
+}
+
+.template-loader__loading,
+.template-loader__placeholder {
+    color: rgb(163, 230, 53);
+    text-align: center;
+    margin: 0;
+}
+
+.template-loader__form {
+    margin-bottom: 20px;
+}
+
+.template-loader__fields {
+    margin-top: 20px;
+}
+
+.template-loader__input,
+.template-loader__textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.template-loader__button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.template-loader__button:hover {
+    background-color: #45a049;
+}
