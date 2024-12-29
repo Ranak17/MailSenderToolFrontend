@@ -6,6 +6,11 @@ import Template1 from "../templates/Template1";
 
 const TemplateLoader = () => {
     const [selectedTemplate, setSelectedTemplate] = useState("");
+    const [attachment, setAttachment] = useState(null); // State for file attachment
+
+    const handleFileChange = (e) => {
+        setAttachment(e.target.files[0]); // Get the first selected file
+    };
 
     // Map template keys to React components
     const templateComponents: { [key: string]: React.ReactNode } = {
@@ -33,6 +38,33 @@ const TemplateLoader = () => {
         }));
     };
 
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+
+    //     // Get the HTML content from the editable preview area
+    //     const editedHTML = previewRef.current
+    //         ? previewRef.current.querySelector(".email-template").innerHTML
+    //         : "";
+
+    //     try {
+    //         console.log("Email Content:", {
+    //             ...formData,
+    //             body: editedHTML,
+    //         });
+
+    //         const response = await axios.post("http://localhost:8080/api/mail/send-single", {
+    //             ...formData,
+    //             body: editedHTML, // Use the edited content as the email body
+    //         });
+
+    //         if (response.status === 200) {
+    //             alert("Email sent successfully!");
+    //         }
+    //     } catch (error) {
+    //         console.error("Error sending email:", error);
+    //         alert("Failed to send email. Please try again.");
+    //     }
+    // };
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -41,15 +73,18 @@ const TemplateLoader = () => {
             ? previewRef.current.querySelector(".email-template").innerHTML
             : "";
 
-        try {
-            console.log("Email Content:", {
-                ...formData,
-                body: editedHTML,
-            });
+        // Create FormData for file upload
+        const formDataWithFile = new FormData();
+        formDataWithFile.append("recipient", formData.recipient);
+        formDataWithFile.append("subject", formData.subject);
+        formDataWithFile.append("body", editedHTML);
+        if (attachment) {
+            formDataWithFile.append("attachment", attachment);
+        }
 
-            const response = await axios.post("http://localhost:8080/api/mail/send-single", {
-                ...formData,
-                body: editedHTML, // Use the edited content as the email body
+        try {
+            const response = await axios.post("http://localhost:8080/api/mail/send-single", formDataWithFile, {
+                headers: { "Content-Type": "multipart/form-data" },
             });
 
             if (response.status === 200) {
@@ -60,7 +95,6 @@ const TemplateLoader = () => {
             alert("Failed to send email. Please try again.");
         }
     };
-
     const applyFormat = (format, value) => {
         const selection = window.getSelection();
         if (!selection || selection.rangeCount === 0) return;
@@ -154,7 +188,14 @@ const TemplateLoader = () => {
                             value={formData.subject}
                             onChange={handleChange}
                         />
-
+                        <label htmlFor="attachment" className="template-loader__label">Attachment:</label>
+                        <input
+                            id="attachment"
+                            type="file"
+                            onChange={handleFileChange}
+                        />
+                        <br />
+                        <br />
                         <button className="template-loader__button" onClick={handleSubmit}>
                             Send Email
                         </button>
