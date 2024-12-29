@@ -8,3 +8,8 @@ img {
     width: 100%;
     height: 100%;
 }
+
+:root {
+    --background-theme-color: rgb(17, 24, 39);
+    --green-theme-color: rgb(163, 230, 53);
+}

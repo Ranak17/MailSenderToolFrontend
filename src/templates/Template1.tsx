@@ -7,8 +7,11 @@ const Template1 = () => {
                 background: 'white',
                 color: 'black',
                 position: 'relative',
-                height: '100%',
+                // height: '100%',
+                outline: 'none'
             }}
+            className='email-template'
+            contentEditable={true}
         >
             <div
                 style={{
@@ -25,6 +28,7 @@ const Template1 = () => {
                     padding: '2rem',
                     display: 'grid',
                     gap: '.8rem',
+                    minHeight: '4rem'
                 }}
             >
                 <h2>Welcome to Our Service!</h2>
@@ -46,7 +50,7 @@ const Template1 = () => {
                     textAlign: 'center',
                     padding: '10px',
                     bottom: '0',
-                    position: 'absolute',
+                    // position: 'absolute',
                     width: '100%',
                 }}
             >
